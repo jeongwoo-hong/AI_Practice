@@ -59,6 +59,8 @@
             labelContainer.childNodes[0].innerHTML = "머리용 롤"
         } else if (prediction[1].className == "Roll Sticker" && prediction[1].probability.toFixed(2) == 1.00) {
             labelContainer.childNodes[0].innerHTML = "청소용 롤"
+        } else {
+            labelContainer.childNodes[0].innerHTML = "알 수 없음"
         }
     }
 </script>
