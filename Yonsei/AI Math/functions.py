@@ -55,7 +55,7 @@ def year2salary_unknown_basis(year, basis):
     return salary
 
 basis_guess = 1
-salaries_guess = year2salary_unknown_basis(4, 0)
+salaries_guess = year2salary_unknown_basis(1, 5)
 error = salaries_guess - salaries
 squared_error = error**2
 # print(squared_error.sum())
@@ -74,14 +74,36 @@ error = compute_error(salaries_guess, salaries)
 
 # ----------------------------------------
 
-# errors = []
-# basis_guesses = np.arrange(-3, 3)
-# for basis_guess in basis_guesses:
-#     salaries_guess - year2salary_unknown_basis(years, basis_guess)
-#     error = compute_error(salaries_guess, salaries)
-#     errors.append(error)
+errors = []
+basis_guesses = np.arange(-3, 3)
+for basis_guess in basis_guesses:
+    salaries_guess - year2salary_unknown_basis(years, basis_guess)
+    error = compute_error(salaries_guess, salaries)
+    errors.append(error)
 # print(basis_guesses)
 # print(errors)
 
 # plt.plot(basis_guesses, errors)
 # plt.show()
+
+# ----------------------------------------
+
+def derivative(f, a, eps=1e-4):
+    return (f(a + eps) - f(a - eps)) / (eps * 2)
+
+def square(x):
+    return x**2
+
+# for x_hat in np.arange(-2, 3):
+#     print(derivative(square, x_hat))
+
+# ----------------------------------------
+
+errors = []
+basis_guesses = np.arange(-3, 3)
+for basis_guess in basis_guesses:
+    salaries_guess = year2salary_unknown_basis(years, basis_guess)
+    error = compute_error(salaries_guess, salaries)
+    errors.append(error)
+print(basis_guesses)
+print(errors)
