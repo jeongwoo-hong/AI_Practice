@@ -115,7 +115,40 @@ def basis2error(basis_guess):
     error = compute_error(salaries_guess, salaries)
     return error
 
-print(derivative(basis2error, -1))
-print(derivative(basis2error, 0))
-print(derivative(basis2error, 1))
+# print(derivative(basis2error, -1))
+# print(derivative(basis2error, 0))
+# print(derivative(basis2error, 1))
+
+# ----------------------------------------
+
+a_hat = 1
+x = 1
+y = 3
+y_hat = x * a_hat
+error = y_hat - y
+L = error ** 2
+
+dLde = 2 * error
+dedyh = 1
+dLdyh = dLde * dedyh
+dyhdah = 1
+dLdah = dLdyh * dyhdah
+
+# print('dLde', dLde)
+# print('dLdyh', dLdyh)
+# print('dLdah', dLdah)
+
+# ----------------------------------------
+
+def composite(a_hat):
+    x = 1
+    y = 3
+
+    y_hat = x * a_hat
+    error = y_hat - y
+    L = error ** 2
+
+    return L
+
+# print(derivative(composite, 1))
 
