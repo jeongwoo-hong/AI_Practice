@@ -105,5 +105,17 @@ for basis_guess in basis_guesses:
     salaries_guess = year2salary_unknown_basis(years, basis_guess)
     error = compute_error(salaries_guess, salaries)
     errors.append(error)
-print(basis_guesses)
-print(errors)
+# print(basis_guesses)
+# print(errors)
+
+# ----------------------------------------
+
+def basis2error(basis_guess):
+    salaries_guess = year2salary_unknown_basis(years, basis_guess)
+    error = compute_error(salaries_guess, salaries)
+    return error
+
+print(derivative(basis2error, -1))
+print(derivative(basis2error, 0))
+print(derivative(basis2error, 1))
+
