@@ -170,7 +170,6 @@ def gradient(f, xs, h = 1e-6):
         derivs.append((fx2 - fx1) / (2*h))
     return np.array(derivs)
 
-    
 
 x0 = np.random.randn(2) * 3
 xi = x0
